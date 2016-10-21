@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">Final Project</string>
     <string name="title_activity_maps">Map</string>
-    <string name="Input">Input your item one by one</string>
-    <string name="begin">Begin the app(this button will be a decoration)</string>
+    <string name="hint">Input your item one by one</string>
+    <string name="begin">Begin the app(this button will be a decoration icon in the middle of this page)</string>
+    <string name="Enter">Enter</string>
+    <string name="CleanEntries">Clean entries</string>
+
+
 
 
 </resources>
