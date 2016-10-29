@@ -5,8 +5,9 @@
     <string name="begin">Begin the app(this button will be a decoration icon in the middle of this page)</string>
     <string name="Enter">Enter</string>
     <string name="CleanEntries">Clean entries</string>
-
-
+    <string name="Random">Give me a lucky draw!</string>
+    <string name="backtoActivity1">Go Back</string>
+    <string name="gotoActivity3">I want more</string>
 
 
 </resources>

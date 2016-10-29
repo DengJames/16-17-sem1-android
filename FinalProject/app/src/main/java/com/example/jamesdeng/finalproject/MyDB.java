@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import static com.example.jamesdeng.finalproject.MyDBHelper.tableName;
+
 public class MyDB {
     MyDBHelper DBHelper;
     SQLiteDatabase db;
@@ -28,30 +30,31 @@ public class MyDB {
         ContentValues initialValues = new ContentValues();
         initialValues.put(MyDBHelper.columnName2, name2_str);
         //initialValues.put(MyDBHelper.columnName3, name3_str);
-        return db.insert(MyDBHelper.tableName, null, initialValues);
+        return db.insert(tableName, null, initialValues);
     }
 
     public int deleteRecord(long rowIDToBeDeleted){
-        return db.delete(MyDBHelper.tableName, MyDBHelper.columnName1 + "=" + rowIDToBeDeleted, null);
+        return db.delete(tableName, MyDBHelper.columnName1 + "=" + rowIDToBeDeleted, null);
     }
 
-    public void removeAll()
-    {
+    public void removeAll() {
         // db.delete(String tableName, String whereClause, String[] whereArgs);
         // If whereClause is null, it will delete all rows.
-        db.delete(MyDBHelper.tableName, null, null);
+
+        db.delete(tableName, null, null);
+        db.execSQL("DELETE FROM SQLITE_SEQUENCE WHERE NAME = '" + tableName + "'");
     }
 
     public int updateRecord(String name1_str, String name2_str){ //, String name3_str){
         ContentValues initialValues = new ContentValues();
         initialValues.put(MyDBHelper.columnName2, name2_str);
        // initialValues.put(MyDBHelper.columnName3, name3_str);
-        return db.update(MyDBHelper.tableName, initialValues, MyDBHelper.columnName1 + "=" + name1_str, null);
+        return db.update(tableName, initialValues, MyDBHelper.columnName1 + "=" + name1_str, null);
     }
 
     public Cursor getAllRecords() {
         return db.query(
-                MyDBHelper.tableName,
+                tableName,
                 new String[] {
                         MyDBHelper.columnName1,
                         MyDBHelper.columnName2},
@@ -59,8 +62,9 @@ public class MyDB {
                 null, null, null, null, null);
     }
 
+
     public Cursor getRecord(long id) {
-        Cursor mCursor = db.query(MyDBHelper.tableName,
+        Cursor mCursor = db.query(tableName,
                 new String[] {
                         MyDBHelper.columnName1,
                         MyDBHelper.columnName2},
@@ -73,5 +77,7 @@ public class MyDB {
         }
         return mCursor;
     }
+
+
 
 }

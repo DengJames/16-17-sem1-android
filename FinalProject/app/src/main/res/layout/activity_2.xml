@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.jamesdeng.finalproject.Activity2">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+    <Button
+        android:text="@string/backtoActivity1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="backtoActivity1"
+        android:id="@+id/buttonPrevious" />
+
+
+    <Button
+        android:text="@string/gotoActivity3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:onClick="moveForward"
+        android:id="@+id/buttonForward"
+        android:layout_weight="1" />
+</LinearLayout>
+</LinearLayout>
