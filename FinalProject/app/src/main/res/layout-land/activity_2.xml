@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:weightSum="10"
     tools:context="com.example.jamesdeng.finalproject.Activity2">
+
+
 
 
 
@@ -25,8 +26,6 @@
         android:id="@+id/fragment12"
         android:name="com.example.jamesdeng.finalproject.Fragment22"
         android:layout="@layout/fragment_fragment22"/>
-
-
 
 
 
