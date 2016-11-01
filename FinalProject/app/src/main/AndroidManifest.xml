@@ -46,7 +46,7 @@
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".MyDBHelper" />
         <activity android:name=".Activity2" />
-        <activity android:name=".Activity0"></activity>
+        <activity android:name=".Activity0" />
     </application>
 
 </manifest>
