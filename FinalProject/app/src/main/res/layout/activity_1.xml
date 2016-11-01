@@ -11,16 +11,20 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3.5">
+
         <ScrollView
             android:id="@+id/scrollView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-                <TextView
-                    android:id="@+id/Result"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="" />
+
+            <TextView
+                android:id="@+id/Result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#9027C0"
+                android:textSize="20sp" />
         </ScrollView>
     </LinearLayout>
 
@@ -29,12 +33,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2">
-         <EditText
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:hint="enter one by one"
-             android:singleLine="true"
-             android:id="@+id/Input" />
+
+        <EditText
+            android:id="@+id/Input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="enter one by one"
+            android:singleLine="true" />
     </LinearLayout>
 
     <LinearLayout
@@ -42,27 +47,30 @@
         android:layout_height="0dp"
         android:layout_weight="4.5"
         android:orientation="vertical">
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.5"
-        android:text="@string/Enter"
-        android:id="@+id/buttonEnter"
-        android:onClick="display"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.5"
-        android:text="@string/CleanEntries"
-        android:id="@+id/buttonClean"
-        android:onClick="delete"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.5"
-        android:text="@string/Random"
-        android:id="@+id/buttonRandom"
-        android:onClick="calculateRand"/>
+
+        <Button
+            android:id="@+id/buttonEnter"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:onClick="display"
+            android:text="@string/Enter" />
+
+        <Button
+            android:id="@+id/buttonClean"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:onClick="delete"
+            android:text="@string/CleanEntries" />
+
+        <Button
+            android:id="@+id/buttonRandom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:onClick="calculateRand"
+            android:text="@string/Random" />
     </LinearLayout>
 
 

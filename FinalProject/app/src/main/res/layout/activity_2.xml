@@ -5,41 +5,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:weightSum="10"
     tools:context="com.example.jamesdeng.finalproject.Activity2">
 
+
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" />
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+
+            <Button
+                android:id="@+id/buttonPrevious"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="backtoActivity1"
+                android:text="@string/backToActivity1" />
+
+
+            <Button
+                android:id="@+id/buttonForward"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="moveForward"
+                android:text="@string/gotoActivity3" />
+        </LinearLayout>
     </LinearLayout>
 
 
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-
-    <Button
-        android:text="@string/backtoActivity1"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="backtoActivity1"
-        android:id="@+id/buttonPrevious" />
+        android:layout_height="0dp"
+        android:layout_weight="9">
 
 
-    <Button
-        android:text="@string/gotoActivity3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:onClick="moveForward"
-        android:id="@+id/buttonForward"
-        android:layout_weight="1" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+
+            android:shadowColor="#9F20CF"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="3"
+            android:text=""
+            android:textColor="#FFB601"
+
+            android:textSize="30sp" />
+
+    </RelativeLayout>
+
+
 </LinearLayout>

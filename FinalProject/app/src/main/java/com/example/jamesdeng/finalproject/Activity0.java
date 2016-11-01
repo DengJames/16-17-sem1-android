@@ -11,7 +11,7 @@ public class Activity0 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_0);
 
-        TextView tv = ((TextView)findViewById(R.id.tv0));
+        TextView tv = ((TextView) findViewById(R.id.tv0));
         tv.setText(getIntent().getStringExtra("KEY_StringName"));
     }
 }

@@ -12,6 +12,8 @@ public class Activity2 extends AppCompatActivity {
 
     TextView tv;
     String result;
+    String getTheUserName;
+    TextView tv2;
 
 
     @Override
@@ -20,26 +22,33 @@ public class Activity2 extends AppCompatActivity {
         setContentView(R.layout.activity_2);
 
         tv = (TextView) findViewById(R.id.textView);
+//        tv2 = (TextView) findViewById(R.id.textView2);
 
 
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         result = pref.getString("randomResult", "");
+
+        SharedPreferences pref2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        getTheUserName = pref2.getString("theUserName", "");
+
         tv.setText("");
-        tv.append("Lucky result: " + result);
+//        tv2.setText("");
+
+//        tv2.append(result);
+        tv.append("Hi " + getTheUserName + ", lucky choice is:" + "\n \n \n \n \n" + result);
 
 
     }
 
-    public void backtoActivity1(View view){
+    public void backtoActivity1(View view) {
         Intent myIntent = new Intent(this, Activity1.class);
         startActivity(myIntent);
     }
 
-    public void moveForward(View view){
+    public void moveForward(View view) {
         //Intent myIntent = new Intent(this, Activity3.class);
         //startActivity(myIntent);
     }
-
 
 
 }
