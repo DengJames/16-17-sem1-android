@@ -2,7 +2,9 @@ package com.example.jamesdeng.finalproject;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,6 +16,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     public String userName;
+    SharedPreferences pref2;
+    String theUserName = "theUserName";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        WebView webView = (WebView)findViewById(R.id.webView);
+        WebView webView = (WebView) findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true); // beware of XSS vulnerabilities
         webView.setWebChromeClient(new WebChromeClient());
         webView.loadUrl("file:///android_asset/www/index.html");
@@ -41,15 +45,19 @@ public class MainActivity extends AppCompatActivity {
         //in js, call window.AndroidWebView.showInfoFromJs(name), then run this method
         @JavascriptInterface
         public void showInfoFromJs(String nameVal) {
-            Toast.makeText(mContext,"Hi "+nameVal+", thanks for using our app!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, "Hi " + nameVal + ", thanks for using our app!", Toast.LENGTH_SHORT).show();
             userName = nameVal;
+
+            pref2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+            SharedPreferences.Editor editor = pref2.edit();
+            editor.putString(theUserName, userName);
+            editor.commit();
         }
     }
 
 
-
-
-    public void onClick_GoToActivity1(View view){
+    public void onClick_GoToActivity1(View view) {
         Intent myIntent = new Intent(this, Activity1.class);
         startActivity(myIntent);
     }

@@ -25,6 +25,7 @@ public class Activity1 extends AppCompatActivity {
     SharedPreferences pref;
     String randomResult = "randomResult";
 
+
     MyDB db;
     TextView resultHere;
     EditText entries;
@@ -56,9 +57,8 @@ public class Activity1 extends AppCompatActivity {
                         if (actionId == EditorInfo.IME_ACTION_DONE) {
                             display(v);
                             return true;
-                        }
-                        else if (event != null && KeyEvent.KEYCODE_ENTER == event.getKeyCode() &&
-                                        KeyEvent.ACTION_DOWN == event.getAction() ) {
+                        } else if (event != null && KeyEvent.KEYCODE_ENTER == event.getKeyCode() &&
+                                KeyEvent.ACTION_DOWN == event.getAction()) {
                             display(v);
                             return true;
                         }
@@ -69,10 +69,10 @@ public class Activity1 extends AppCompatActivity {
 
     }
 
-// when press enter on physical keyboard, entries is still focus
+    // when press enter on physical keyboard, entries is still focus
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event){
-        if (!entries.hasFocus()){
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (!entries.hasFocus()) {
             entries.requestFocus();
             entries.onKeyDown(keyCode, event);
 
@@ -87,28 +87,28 @@ public class Activity1 extends AppCompatActivity {
     }
 
 
-    public void addRecord(String name2_str){//}, String name3_str){
+    public void addRecord(String name2_str) {//}, String name3_str){
         db.open();
         db.insertRecord(name2_str);//, name3_str);
         // insertRecord is a user-defined method in MyDB that will call db.insert ()
         db.close();
     }
 
-    public int deleteRecord(long id){
+    public int deleteRecord(long id) {
         db.open();
         int res = db.deleteRecord(id); //deleteRecord is a user-defined method in MyDB that will call db.delete()
         db.close();
         return res;
     }
 
-    public void updateRecord(String id, String name2_str){
+    public void updateRecord(String id, String name2_str) {
         db.open();
         db.updateRecord(id, name2_str);
         // updateRecord is a user-defined method in MyDB that will call db.update ()
         db.close();
     }
 
-    public void retrieveRecord(long id){
+    public void retrieveRecord(long id) {
         db.open();
         Cursor c = db.getRecord(id);
         db.close();
@@ -119,15 +119,15 @@ public class Activity1 extends AppCompatActivity {
         Cursor c = db.getRecord(id);
         String[] record = new String[2];
         if (c.moveToFirst()) {
-            String[] temp = {c.getString(0),c.getString(1)};
-            record = temp; }
-        else
+            String[] temp = {c.getString(0), c.getString(1)};
+            record = temp;
+        } else
             Toast.makeText(this, "No record found", Toast.LENGTH_LONG).show();
         db.close();
         return record;
     }
 
-    public void retrieveAllRecord(){
+    public void retrieveAllRecord() {
         db.open();
         Cursor c = db.getAllRecords();
         db.close();
@@ -137,9 +137,9 @@ public class Activity1 extends AppCompatActivity {
         db.open();
         Cursor c = db.getAllRecords();
         ArrayList<String[]> records = new ArrayList<String[]>();
-        if (c.moveToFirst()){
-            do{
-                String[] record = {c.getString(0),c.getString(1)};//,c.getString(2)};
+        if (c.moveToFirst()) {
+            do {
+                String[] record = {c.getString(0), c.getString(1)};//,c.getString(2)};
                 records.add(record);
             } while (c.moveToNext());
         }
@@ -147,11 +147,10 @@ public class Activity1 extends AppCompatActivity {
         return records;
     }
 
-    public void insert(View v)
-    {
-        String fName= entries.getText().toString();
+    public void insert(View v) {
+        String fName = entries.getText().toString();
         entries.setText("");
-        if (fName.matches("")  ) {
+        if (fName.matches("")) {
             Toast.makeText(this, "Please input your item", Toast.LENGTH_SHORT).show();
         } else {
             addRecord(fName);
@@ -160,8 +159,7 @@ public class Activity1 extends AppCompatActivity {
 
     }
 
-    public void display(View v)
-    {
+    public void display(View v) {
         insert(v);
 
         // auto scroll to bottom
@@ -176,10 +174,10 @@ public class Activity1 extends AppCompatActivity {
         Cursor c = db.getAllRecords();
         resultHere.setText("");
         c.moveToFirst();
-        if ( c.moveToFirst() ) {
+        if (c.moveToFirst()) {
             do {
                 String fName = c.getString(1);
-                resultHere.append(c.getString(0) + " " + fName + "\n");
+                resultHere.append(c.getString(0) + ". " + fName + "\n");
                 numOfInput = Integer.parseInt(c.getString(0));
             } while (c.moveToNext());
         }
@@ -187,7 +185,7 @@ public class Activity1 extends AppCompatActivity {
     }
 
 
-    public void delete(View v){
+    public void delete(View v) {
         numOfInput = 0;
         db.open();
         db.removeAll();
@@ -205,9 +203,9 @@ public class Activity1 extends AppCompatActivity {
 
     }
 
-    public void calculateRand(View view){
-      //  Intent myIntent = new Intent(this, Activity2.class);
-       // startActivity(myIntent);
+    public void calculateRand(View view) {
+        //  Intent myIntent = new Intent(this, Activity2.class);
+        // startActivity(myIntent);
 
 
         if (numOfInput == 0) {
@@ -220,7 +218,7 @@ public class Activity1 extends AppCompatActivity {
 
             Cursor c = db.getRecord(x);
             String fName = c.getString(1);
-            String calculatedRandomResult = c.getString(0) + fName;
+            String calculatedRandomResult = fName;
 
             pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
@@ -244,29 +242,29 @@ public class Activity1 extends AppCompatActivity {
 
     // click empty space, hide keyboard
     public boolean onTouchEvent(MotionEvent event) {
-        if(null != this.getCurrentFocus()){
+        if (null != this.getCurrentFocus()) {
             /**
              *  hide keyboard
              */
             InputMethodManager mInputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
             return mInputMethodManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), 0);
         }
-        return super .onTouchEvent(event);
+        return super.onTouchEvent(event);
     }
 
     // after user hit the back button, and return back to the app, the input still be shown
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
 
         db.open();
         Cursor c = db.getAllRecords();
         resultHere.setText("");
-        if ( c.moveToFirst() ) {
-            do{
-                String fName=c.getString(1);
+        if (c.moveToFirst()) {
+            do {
+                String fName = c.getString(1);
 
-                resultHere.append(c.getString(0)+" "+fName+"\n");
+                resultHere.append(c.getString(0) + " " + fName + "\n");
                 numOfInput = Integer.parseInt(c.getString(0));
             } while (c.moveToNext());
         }

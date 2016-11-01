@@ -5,7 +5,7 @@ gradle/**
 *.gradle
 gradlew
 gradlew.bat
-
+.idea/misc.xml
 
 # Built application files
 *.apk
