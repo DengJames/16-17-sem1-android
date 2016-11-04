@@ -9,7 +9,6 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="com.javapapers.android.googleplacesdetail.permission.MAPS_RECEIVE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
@@ -53,6 +52,8 @@
         <activity android:name=".MyDBHelper" />
         <activity android:name=".Activity2" />
         <activity android:name=".Activity0" />
+        <activity android:name=".LocationActivity" />
+        <activity android:name=".MyBroadcastReceiver"></activity>
     </application>
 
 </manifest>

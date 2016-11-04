@@ -11,5 +11,6 @@ public class Activity3 extends AppCompatActivity {
         setContentView(R.layout.activity_3);
     }
 
+    // so far does nothing -- might be discarded
 
 }

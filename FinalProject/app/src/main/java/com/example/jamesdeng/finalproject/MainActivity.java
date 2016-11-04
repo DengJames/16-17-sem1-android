@@ -2,6 +2,7 @@ package com.example.jamesdeng.finalproject;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -19,6 +20,11 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences pref2;
     String theUserName = "theUserName";
 
+    //-----------for broadcast--------------
+    MyBroadcastReceiver myBroadcastReceiver;
+    IntentFilter myIntentFilter;
+    //---------------------------------------
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +38,24 @@ public class MainActivity extends AppCompatActivity {
         webView.addJavascriptInterface(this, "nativeMethod");
         webView.addJavascriptInterface(new JsInterface(this), "AndroidWebView");
 
+        myBroadcastReceiver = new MyBroadcastReceiver();
+        myIntentFilter = new IntentFilter("BBC");
+
     }
 
+    //-----------for broadcast--------------
+    @Override
+    public void onResume() {
+        super.onResume();
+        registerReceiver(myBroadcastReceiver, myIntentFilter);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        unregisterReceiver(myBroadcastReceiver);
+    }
+    //----------------------------------------
 
     private class JsInterface {
         private Context mContext;
@@ -47,6 +69,12 @@ public class MainActivity extends AppCompatActivity {
         public void showInfoFromJs(String nameVal) {
             Toast.makeText(mContext, "Hi " + nameVal + ", thanks for using our app!", Toast.LENGTH_SHORT).show();
             userName = nameVal;
+
+            //-------------send out broadcast
+            Intent myIntent = new Intent("BBC");
+            myIntent.putExtra("BroadcastMessage1", userName);
+            sendBroadcast(myIntent);
+            // ---------------
 
             pref2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 

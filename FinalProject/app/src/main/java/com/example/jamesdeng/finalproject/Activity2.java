@@ -47,8 +47,8 @@ public class Activity2 extends Activity {
     }
 
     public void moveForward(View view) {
-//        Intent myIntent = new Intent(this, Activity3.class);
-//        startActivity(myIntent);
+        Intent myIntent = new Intent(this, LocationActivity.class);
+        startActivity(myIntent);
     }
 
 }
