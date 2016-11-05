@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         webView.addJavascriptInterface(new JsInterface(this), "AndroidWebView");
 
         myBroadcastReceiver = new MyBroadcastReceiver();
-        myIntentFilter = new IntentFilter("BBC");
+        myIntentFilter = new IntentFilter("broadcast");
 
     }
 
@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
             userName = nameVal;
 
             //-------------send out broadcast
-            Intent myIntent = new Intent("BBC");
-            myIntent.putExtra("BroadcastMessage1", userName);
+            Intent myIntent = new Intent("broadcast");
+            myIntent.putExtra("BroadcastMessage", userName);
             sendBroadcast(myIntent);
             // ---------------
 
@@ -99,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
 //                Toast.makeText(this, userName, Toast.LENGTH_SHORT).show();
                 intent.putExtra("KEY_StringName", userName);
                 startActivity(intent);
+
+
 
             } else {
                 startActivity(new Intent(this, MainActivity.class));

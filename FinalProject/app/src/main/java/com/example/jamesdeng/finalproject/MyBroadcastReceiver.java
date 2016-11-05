@@ -9,7 +9,7 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent data) {
-        String str = data.getStringExtra("BroadcastMessage1");
-        Toast.makeText(context, "Thank you, " + str + ", for using tha app. See you again!", Toast.LENGTH_SHORT).show();
+        String str = data.getStringExtra("BroadcastMessage");
+        Toast.makeText(context, str + ", please proceed to the next step!", Toast.LENGTH_SHORT).show();
     }
 }
