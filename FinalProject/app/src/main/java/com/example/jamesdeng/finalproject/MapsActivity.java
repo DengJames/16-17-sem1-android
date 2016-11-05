@@ -18,6 +18,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
 
+    float lat;
+    float lng;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,15 +31,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        String lat = pref.getString("shareLat", "");
-        String lng = pref.getString("shareLng", "");
+         lat = pref.getFloat("shareLat", 0);
+         lng = pref.getFloat("shareLng", 0);
 
         Toast.makeText(this, "first toast: " +lat+" "+lng, Toast.LENGTH_LONG).show();
 
-        Float latInt= Float.parseFloat(lat);
-        Float lngInt= Float.parseFloat(lng);
 
-        Toast.makeText(this, "second toast: "+latInt+" "+lngInt, Toast.LENGTH_LONG).show();
+
     }
 
 
@@ -66,7 +67,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
          Toast.makeText(this, "second toast: "+latInt+" "+lngInt, Toast.LENGTH_LONG).show(); */
 
-        LatLng currentLocation = new LatLng(1.253522,103.825703);
+        LatLng currentLocation = new LatLng(lat,lng);
 
         Marker markerCurrentLocation = mMap.addMarker(new MarkerOptions().position(currentLocation).title("Marker in Resorts World Sentosa").snippet("This is Resorts World Sentosa"));
 

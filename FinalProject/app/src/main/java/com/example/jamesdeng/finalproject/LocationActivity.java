@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.View;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -125,22 +126,29 @@ public class LocationActivity extends Activity implements
 
             String lng = String.valueOf(mCurrentLocation.getLongitude());
 
+            Float latInt= Float.parseFloat(lat);
+            Float lngInt= Float.parseFloat(lng);
+
             pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
             SharedPreferences.Editor editor = pref.edit();
-            editor.putString(shareLat, lat);
-            editor.putString(shareLng, lng);
+            editor.putFloat(shareLat, latInt);
+            editor.putFloat(shareLng, lngInt);
             editor.commit();
 
 
-            Intent myIntent = new Intent(this, MapsActivity.class);
-            startActivity(myIntent);
+
 
            // Toast.makeText(this,lat+" "+lng, Toast.LENGTH_LONG).show();
             //   g e t   t h e   l o c a t i o n   w i t h   a c c u r a c y   a n d   a l s o   p r o v i d e r,   u s i n g
             // mCurrentLocation.getAccuracy()
             // mCurrentLocation.getProvider());
         }
+    }
+
+    public void toMap(View view) {
+        Intent myIntent = new Intent(this, MapsActivity.class);
+        startActivity(myIntent);
     }
 }
 
