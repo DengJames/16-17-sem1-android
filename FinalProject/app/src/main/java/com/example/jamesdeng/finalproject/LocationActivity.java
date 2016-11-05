@@ -37,7 +37,7 @@ public class LocationActivity extends Activity implements
     IntentFilter myIntentFilter;
 
 
-    SharedPreferences pref;
+    SharedPreferences pref3;
     String shareLat = "shareLat";
     String shareLng = "shareLng";
 
@@ -126,14 +126,14 @@ public class LocationActivity extends Activity implements
 
             String lng = String.valueOf(mCurrentLocation.getLongitude());
 
-            Float latInt= Float.parseFloat(lat);
-            Float lngInt= Float.parseFloat(lng);
+          //  Float latInt= Float.parseFloat(lat);
+           // Float lngInt= Float.parseFloat(lng);
 
-            pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            pref3 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
-            SharedPreferences.Editor editor = pref.edit();
-            editor.putFloat(shareLat, latInt);
-            editor.putFloat(shareLng, lngInt);
+            SharedPreferences.Editor editor = pref3.edit();
+            editor.putString(shareLat, lat);
+            editor.putString(shareLng, lng);
             editor.commit();
 
 
