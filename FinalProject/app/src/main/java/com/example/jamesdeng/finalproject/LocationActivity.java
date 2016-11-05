@@ -1,14 +1,15 @@
 package com.example.jamesdeng.finalproject;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -124,18 +125,18 @@ public class LocationActivity extends Activity implements
 
             String lng = String.valueOf(mCurrentLocation.getLongitude());
 
-           /* pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
             SharedPreferences.Editor editor = pref.edit();
             editor.putString(shareLat, lat);
             editor.putString(shareLng, lng);
             editor.commit();
-*/
 
-          /*  Intent myIntent = new Intent(this, MapsActivity.class);
-            startActivity(myIntent); */
 
-            Toast.makeText(this,lat+" "+lng, Toast.LENGTH_LONG).show();
+            Intent myIntent = new Intent(this, MapsActivity.class);
+            startActivity(myIntent);
+
+           // Toast.makeText(this,lat+" "+lng, Toast.LENGTH_LONG).show();
             //   g e t   t h e   l o c a t i o n   w i t h   a c c u r a c y   a n d   a l s o   p r o v i d e r,   u s i n g
             // mCurrentLocation.getAccuracy()
             // mCurrentLocation.getProvider());

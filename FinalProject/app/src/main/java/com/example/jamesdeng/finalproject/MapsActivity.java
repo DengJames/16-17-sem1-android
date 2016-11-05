@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -47,8 +48,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String lat = pref.getString("lat", "");
         String lng = pref.getString("lng", "");
 
+        Toast.makeText(this, "first toast: " +lat+" "+lng, Toast.LENGTH_LONG).show();
+
         Float latInt= Float.parseFloat(lat);
         Float lngInt= Float.parseFloat(lng);
+
+         Toast.makeText(this, "second toast: "+latInt+" "+lngInt, Toast.LENGTH_LONG).show();
 
         LatLng currentLocation = new LatLng(latInt,lngInt);
 
