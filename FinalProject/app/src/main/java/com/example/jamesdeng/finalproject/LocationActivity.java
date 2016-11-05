@@ -11,6 +11,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -126,8 +127,8 @@ public class LocationActivity extends Activity implements
 
             String lng = String.valueOf(mCurrentLocation.getLongitude());
 
-          //  Float latInt= Float.parseFloat(lat);
-           // Float lngInt= Float.parseFloat(lng);
+            Float latInt= Float.parseFloat(lat);
+            Float lngInt= Float.parseFloat(lng);
 
             pref3 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
@@ -139,7 +140,7 @@ public class LocationActivity extends Activity implements
 
 
 
-           // Toast.makeText(this,lat+" "+lng, Toast.LENGTH_LONG).show();
+            Toast.makeText(this,latInt+" "+lngInt, Toast.LENGTH_LONG).show();
             //   g e t   t h e   l o c a t i o n   w i t h   a c c u r a c y   a n d   a l s o   p r o v i d e r,   u s i n g
             // mCurrentLocation.getAccuracy()
             // mCurrentLocation.getProvider());
