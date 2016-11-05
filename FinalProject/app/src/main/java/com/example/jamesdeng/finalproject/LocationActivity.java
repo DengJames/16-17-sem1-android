@@ -37,8 +37,8 @@ public class LocationActivity extends Activity implements
 
 
     SharedPreferences pref;
-    String shareLat = "lat";
-    String shareLng = "lng";
+    String shareLat = "shareLat";
+    String shareLng = "shareLng";
 
     @Override
     protected void onCreate(Bundle savedInstanceState){

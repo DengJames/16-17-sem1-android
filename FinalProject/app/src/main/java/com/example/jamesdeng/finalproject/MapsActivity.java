@@ -26,6 +26,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String lat = pref.getString("shareLat", "");
+        String lng = pref.getString("shareLng", "");
+
+        Toast.makeText(this, "first toast: " +lat+" "+lng, Toast.LENGTH_LONG).show();
+
+        Float latInt= Float.parseFloat(lat);
+        Float lngInt= Float.parseFloat(lng);
+
+        Toast.makeText(this, "second toast: "+latInt+" "+lngInt, Toast.LENGTH_LONG).show();
     }
 
 
@@ -44,7 +55,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 // Need broadcast receiver here to get lat and lng of current location from LocationActivity to MapsActivity
 //        LatLng currentLocation = new LatLng(lat,lng);
 
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+     /*   SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String lat = pref.getString("lat", "");
         String lng = pref.getString("lng", "");
 
@@ -53,9 +64,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Float latInt= Float.parseFloat(lat);
         Float lngInt= Float.parseFloat(lng);
 
-         Toast.makeText(this, "second toast: "+latInt+" "+lngInt, Toast.LENGTH_LONG).show();
+         Toast.makeText(this, "second toast: "+latInt+" "+lngInt, Toast.LENGTH_LONG).show(); */
 
-        LatLng currentLocation = new LatLng(latInt,lngInt);
+        LatLng currentLocation = new LatLng(1.253522,103.825703);
 
         Marker markerCurrentLocation = mMap.addMarker(new MarkerOptions().position(currentLocation).title("Marker in Resorts World Sentosa").snippet("This is Resorts World Sentosa"));
 
