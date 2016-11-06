@@ -20,7 +20,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:onClick="backtoActivity1"
-        android:text="@string/backToActivity1" />
+        android:text="@string/backToActivity1"
+        android:background = "@drawable/mybutton"
+        />
 
 
     <Button
@@ -29,7 +31,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:onClick="moveForward"
-        android:text="@string/gotoActivity3" />
+        android:text="@string/gotoActivity3"
+        android:background = "@drawable/mybutton"
+        />
 </LinearLayout>
 
 

@@ -52,25 +52,34 @@
             android:id="@+id/buttonEnter"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.5"
+            android:layout_weight="1.56"
             android:onClick="display"
+            android:background="@drawable/mybutton"
+            android:layout_gravity="center"
             android:text="@string/Enter" />
 
         <Button
             android:id="@+id/buttonClean"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.5"
+            android:layout_weight="1.56"
             android:onClick="delete"
-            android:text="@string/CleanEntries" />
+            android:text="@string/CleanEntries"
+            android:background = "@drawable/mybutton"
+            android:layout_gravity="center"
+            />
 
         <Button
             android:id="@+id/buttonRandom"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.5"
+            android:layout_weight="1.56"
             android:onClick="calculateRand"
-            android:text="@string/Random" />
+            android:text="@string/Random"
+            android:background = "@drawable/mybutton"
+            android:layout_gravity="center"
+
+            />
     </LinearLayout>
 
 
