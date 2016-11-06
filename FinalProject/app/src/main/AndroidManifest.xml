@@ -50,6 +50,7 @@
             android:name=".Activity1"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".MyDBHelper" />
+<<<<<<< HEAD
 
         <activity android:name=".Activity2" android:label="Lucky Draw" android:parentActivityName=".Activity1">
         <meta-data
@@ -58,6 +59,9 @@
         </activity>
 
         <activity android:name=".Activity3" />
+=======
+        <activity android:name=".Activity2" />
+>>>>>>> 2cc5fafb4e6d24d98de5050dfba7161b7cb9eb47
         <activity android:name=".Activity0" />
         <activity android:name=".MyBroadcastReceiver" />
         <activity android:name=".DataParser" />

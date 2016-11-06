@@ -1,19 +1,45 @@
 package com.example.jamesdeng.finalproject;
 
+<<<<<<< HEAD
+=======
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+>>>>>>> 2cc5fafb4e6d24d98de5050dfba7161b7cb9eb47
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+<<<<<<< HEAD
 import android.support.v7.app.AppCompatActivity;
+=======
+import android.view.LayoutInflater;
+>>>>>>> 2cc5fafb4e6d24d98de5050dfba7161b7cb9eb47
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
+<<<<<<< HEAD
 public class Activity2 extends AppCompatActivity {
+=======
+import static com.example.jamesdeng.finalproject.R.id.btnUserInput;
+
+
+public class Activity2 extends Activity {
+>>>>>>> 2cc5fafb4e6d24d98de5050dfba7161b7cb9eb47
 
     TextView tv;
     String result;
     String getTheUserName;
     TextView tv2;
+
+    SharedPreferences pref3;
+    String input = "input";
+
+    EditText entries;
+
+
+    private TextView resultText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +74,42 @@ public class Activity2 extends AppCompatActivity {
     }
 
     public void moveForward(View view) {
-        Intent myIntent = new Intent(this, Activity3.class);
-        startActivity(myIntent);
+
+
+            // get prompts.xml view
+            LayoutInflater layoutInflater = LayoutInflater.from(Activity2.this);
+            View promptView = layoutInflater.inflate(R.layout.input_dialog, null);
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Activity2.this);
+            alertDialogBuilder.setView(promptView);
+
+            entries = (EditText) promptView.findViewById(btnUserInput);
+            // setup a dialog window
+            alertDialogBuilder.setCancelable(false)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                                String userInput = entries.getText().toString();
+
+                                pref3 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+                                SharedPreferences.Editor editor = pref3.edit();
+                                editor.putString(input, userInput);
+                                editor.commit();
+
+                            startActivity(new Intent(getBaseContext(),MapsActivity.class));
+
+                        }
+                    })
+                    .setNegativeButton("Cancel",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+
+            // create an alert dialog
+            AlertDialog alert = alertDialogBuilder.create();
+            alert.show();
+
     }
 
 }
