@@ -8,7 +8,13 @@
     tools:context="com.example.jamesdeng.finalproject.Activity2">
 
 
-
+    <fragment
+        android:layout_width="0dp"
+        android:layout_weight="9"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment12"
+        android:name="com.example.jamesdeng.finalproject.Fragment22"
+        android:layout="@layout/fragment_fragment22"/>
 
 
     <fragment
@@ -19,13 +25,7 @@
         android:name="com.example.jamesdeng.finalproject.Fragment21"
         android:layout="@layout/fragment_fragment21"/>
 
-    <fragment
-        android:layout_width="0dp"
-        android:layout_weight="9"
-        android:layout_height="match_parent"
-        android:id="@+id/fragment12"
-        android:name="com.example.jamesdeng.finalproject.Fragment22"
-        android:layout="@layout/fragment_fragment22"/>
+
 
 
 

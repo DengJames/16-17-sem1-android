@@ -1,14 +1,14 @@
 package com.example.jamesdeng.finalproject;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-public class Activity2 extends Activity {
+public class Activity2 extends AppCompatActivity {
 
     TextView tv;
     String result;
@@ -19,6 +19,7 @@ public class Activity2 extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //---------------------------------------------
 
@@ -34,7 +35,7 @@ public class Activity2 extends Activity {
         tv.setText("");
         tv2.setText("");
 
-        tv.append("Hi " + getTheUserName + ", lucky choice is:");
+        tv.append("Hi " + getTheUserName + ", lucky draw is:");
         tv2.append(result);
 
         //----------------------------------------------
