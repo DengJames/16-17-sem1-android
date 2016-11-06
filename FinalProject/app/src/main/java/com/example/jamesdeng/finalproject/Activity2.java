@@ -1,12 +1,19 @@
 package com.example.jamesdeng.finalproject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import static com.example.jamesdeng.finalproject.R.id.btnUserInput;
+
 
 public class Activity2 extends Activity {
 
@@ -14,6 +21,14 @@ public class Activity2 extends Activity {
     String result;
     String getTheUserName;
     TextView tv2;
+
+    SharedPreferences pref3;
+    String input = "input";
+
+    EditText entries;
+
+
+    private TextView resultText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +62,42 @@ public class Activity2 extends Activity {
     }
 
     public void moveForward(View view) {
-        Intent myIntent = new Intent(this, Activity3.class);
-        startActivity(myIntent);
+
+
+            // get prompts.xml view
+            LayoutInflater layoutInflater = LayoutInflater.from(Activity2.this);
+            View promptView = layoutInflater.inflate(R.layout.input_dialog, null);
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Activity2.this);
+            alertDialogBuilder.setView(promptView);
+
+            entries = (EditText) promptView.findViewById(btnUserInput);
+            // setup a dialog window
+            alertDialogBuilder.setCancelable(false)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                                String userInput = entries.getText().toString();
+
+                                pref3 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+                                SharedPreferences.Editor editor = pref3.edit();
+                                editor.putString(input, userInput);
+                                editor.commit();
+
+                            startActivity(new Intent(getBaseContext(),MapsActivity.class));
+
+                        }
+                    })
+                    .setNegativeButton("Cancel",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+
+            // create an alert dialog
+            AlertDialog alert = alertDialogBuilder.create();
+            alert.show();
+
     }
 
 }

@@ -51,7 +51,6 @@
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".MyDBHelper" />
         <activity android:name=".Activity2" />
-        <activity android:name=".Activity3" />
         <activity android:name=".Activity0" />
         <activity android:name=".MyBroadcastReceiver" />
         <activity android:name=".DataParser" />
