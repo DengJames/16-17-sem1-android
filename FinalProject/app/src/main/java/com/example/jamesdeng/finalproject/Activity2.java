@@ -1,32 +1,20 @@
 package com.example.jamesdeng.finalproject;
 
-<<<<<<< HEAD
-=======
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
->>>>>>> 2cc5fafb4e6d24d98de5050dfba7161b7cb9eb47
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-<<<<<<< HEAD
 import android.support.v7.app.AppCompatActivity;
-=======
 import android.view.LayoutInflater;
->>>>>>> 2cc5fafb4e6d24d98de5050dfba7161b7cb9eb47
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-<<<<<<< HEAD
-public class Activity2 extends AppCompatActivity {
-=======
 import static com.example.jamesdeng.finalproject.R.id.btnUserInput;
 
-
-public class Activity2 extends Activity {
->>>>>>> 2cc5fafb4e6d24d98de5050dfba7161b7cb9eb47
+public class Activity2 extends AppCompatActivity {
 
     TextView tv;
     String result;
@@ -37,9 +25,6 @@ public class Activity2 extends Activity {
     String input = "input";
 
     EditText entries;
-
-
-    private TextView resultText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

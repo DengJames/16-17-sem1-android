@@ -27,14 +27,6 @@
         android:name="com.example.jamesdeng.finalproject.Fragment21"
         android:layout="@layout/fragment_fragment21"/>
 
-
-
-
-
-
-
-
-
     <!--<LinearLayout-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="0dp"-->
