@@ -114,7 +114,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         btnSearch.setOnClickListener(new View.OnClickListener() {
 
             SharedPreferences pref3 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-            String userInput = pref3.getString("input", "");
+            String userInput = pref3.getString("itemCategory", "");
 
             @Override
             public void onClick(View v) {
@@ -127,7 +127,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Log.d("onClick", url);
                 GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
                 getNearbyPlacesData.execute(DataTransfer);
-                Toast.makeText(MapsActivity.this,"Nearby " + userInput, Toast.LENGTH_LONG).show();
+//                Toast.makeText(MapsActivity.this,"Nearby " + userInput, Toast.LENGTH_LONG).show();
             }
         });
 
@@ -162,6 +162,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         googlePlacesUrl.append("location=" + latitude + "," + longitude);
         googlePlacesUrl.append("&radius=" + PROXIMITY_RADIUS);
         googlePlacesUrl.append("&type=" + nearbyPlace);
+        googlePlacesUrl.append("&name=" + nearbyPlace);
         googlePlacesUrl.append("&sensor=true");
         googlePlacesUrl.append("&key=" + "AIzaSyATuUiZUkEc_UgHuqsBJa1oqaODI-3mLs0");
         Log.d("getUrl", googlePlacesUrl.toString());

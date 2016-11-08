@@ -22,7 +22,8 @@ public class Activity2 extends AppCompatActivity {
     TextView tv2;
 
     SharedPreferences pref3;
-    String input = "input";
+    String itemCategory = "itemCategory";
+    String itemName;
 
     EditText entries;
 
@@ -61,39 +62,40 @@ public class Activity2 extends AppCompatActivity {
     public void moveForward(View view) {
 
 
-            // get prompts.xml view
-            LayoutInflater layoutInflater = LayoutInflater.from(Activity2.this);
-            View promptView = layoutInflater.inflate(R.layout.input_dialog, null);
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Activity2.this);
-            alertDialogBuilder.setView(promptView);
+        // get prompts.xml view
+        LayoutInflater layoutInflater = LayoutInflater.from(Activity2.this);
+        View promptView = layoutInflater.inflate(R.layout.input_dialog, null);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Activity2.this);
+        alertDialogBuilder.setView(promptView);
 
-            entries = (EditText) promptView.findViewById(btnUserInput);
-            // setup a dialog window
-            alertDialogBuilder.setCancelable(false)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                                String userInput = entries.getText().toString();
+        entries = (EditText) promptView.findViewById(btnUserInput);
+        // setup a dialog window
+        alertDialogBuilder.setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        itemName = entries.getText().toString();
+                        itemName = itemName.replaceAll(" ", "_").toLowerCase();
 
-                                pref3 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                        pref3 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
-                                SharedPreferences.Editor editor = pref3.edit();
-                                editor.putString(input, userInput);
-                                editor.commit();
+                        SharedPreferences.Editor editor = pref3.edit();
+                        editor.putString(itemCategory, itemName);
+                        editor.commit();
 
-                            startActivity(new Intent(getBaseContext(),MapsActivity.class));
+                        startActivity(new Intent(getBaseContext(), MapsActivity.class));
 
-                        }
-                    })
-                    .setNegativeButton("Cancel",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.cancel();
-                                }
-                            });
+                    }
+                })
+                .setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
 
-            // create an alert dialog
-            AlertDialog alert = alertDialogBuilder.create();
-            alert.show();
+        // create an alert dialog
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
 
     }
 
