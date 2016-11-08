@@ -226,6 +226,7 @@ public class Activity1 extends AppCompatActivity {
             editor.putString(randomResult, calculatedRandomResult);
             editor.commit();
 
+
             db.close();
 
             Intent myIntent = new Intent(this, Activity2.class);

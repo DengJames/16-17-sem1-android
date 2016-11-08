@@ -46,31 +46,61 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4.5"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
 
         <Button
             android:id="@+id/buttonEnter"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.5"
+            android:layout_weight="1.56"
             android:onClick="display"
-            android:text="@string/Enter" />
+            android:text="Enter" />
+            <!--android:background="@drawable/mybutton"-->
+            <!--android:layout_gravity="center"-->
+
+
+        <!--<Button-->
+            <!--android:id="@+id/buttonEnter"-->
+            <!--android:text="Enter"-->
+
+            <!--android:textColor="#FFFFFF"-->
+            <!--android:textSize="15sp"-->
+
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1.56"-->
+            <!--android:background="@drawable/buttonshape"-->
+            <!--android:shadowColor="#A8A8A8"-->
+            <!--android:shadowDx="0"-->
+            <!--android:shadowDy="0"-->
+            <!--android:shadowRadius="25"-->
+            <!--/>-->
 
         <Button
             android:id="@+id/buttonClean"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.5"
+            android:layout_weight="1.56"
             android:onClick="delete"
-            android:text="@string/CleanEntries" />
+            android:text="@string/CleanEntries"/>
+            <!--android:background = "@drawable/mybutton"-->
+            <!--android:layout_gravity="center"-->
+            <!--/>-->
+
 
         <Button
             android:id="@+id/buttonRandom"
+            android:text="Random!"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.5"
-            android:onClick="calculateRand"
-            android:text="@string/Random" />
+            android:layout_weight="1.56"
+            android:onClick="calculateRand"/>
+            android:text="@string/Random"
+            <!--android:background = "@drawable/mybutton"-->
+            <!--android:layout_gravity="center"-->
+            <!--/>-->
+
     </LinearLayout>
 
 
