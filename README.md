@@ -12,7 +12,7 @@ Run the project in Android Studio
 
 ### Prerequisites
 
-Complie SDK version: API 24 (Android 7.0/Nougat)
+Compile SDK version: API 24 (Android 7.0/Nougat)
 
 ## Built With
 
