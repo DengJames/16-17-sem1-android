@@ -8,11 +8,11 @@ Have you ever experienced the moment when you and your friends couldn't decide o
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Run the project in Android Studio
 
 ### Prerequisites
 
-Android Studio
+Complie SDK version: API 24 (Android 7.0/Nougat)
 
 ## Built With
 
