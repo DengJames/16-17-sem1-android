@@ -25,4 +25,4 @@ Compile SDK version: API 24 (Android 7.0/Nougat)
 Project partner: James Huang (https://github.com/JamesHuangUC)
 
 
-**Note:** This app is still under improvement.
+**Note:** This app is under improvement.
